@@ -1,0 +1,22 @@
+<br>Album Edit Page <br>
+<form action="<%= album_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="patch">
+
+  Album title:
+  <input type="text" name="album[title]" value="<%= @album.title %>"><br>
+  Album year:
+  <input type="integer" name="album[year]" value="<%= @album.year %>"><br>
+  Choose band:
+  <select name="album[band_id]">
+    <option selected disable value="">-- please choose --</option>
+      <% @bands.each do |band| %>
+        <option value="<%=band.id%>"><%= band.name %></option>
+      <% end %>
+  </select><br>
+
+  <input type="submit" name="" value="Edit album">
+
+
+
+</form>

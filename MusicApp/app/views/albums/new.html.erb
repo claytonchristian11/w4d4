@@ -1,0 +1,23 @@
+<br>
+Create Album
+<br>
+<form action="<%= albums_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  Album title:
+  <input type="text" name="album[title]" value=""><br>
+  Album year:
+  <input type="integer" name="album[year]" value=""><br>
+  Choose band:
+  <select name="album[band_id]">
+    <option selected disable value="">-- please choose --</option>
+      <% @bands.each do |band| %>
+        <option value="<%=band.id%>"><%= band.name %></option>
+      <% end %>
+  </select><br>
+
+  <input type="submit" name="" value="Create album">
+
+
+
+</form>
